@@ -59,19 +59,7 @@ import save.SaveManager;
 
 public class DrawController {
 	
-	private CmdAdd cmdAddShape;
-	private CmdSelectShape cmdSelectShape;
 	private CmdDeleteShape cmdDeleteShape;
-	private CmdEditPoint cmdEditPoint;
-	private CmdEditLine cmdEditLine;
-	private CmdEditRectangle cmdEditRectangle;
-	private CmdEditSquare cmdEditSquare;
-	private CmdEditCircle cmdEditCircle;
-	private CmdEditHexagon cmdEditHexagon;
-	private CmdToFront cmdToFront;
-	private CmdToBack cmdToBack;
-	private CmdBringToBack cmdBringToBack;
-	private CmdBringToFront cmdBringToFront;
 	private DrawModel model;
 	private DrawFrame frame;
 	private ArrayList<Shape> selectedShapes;
@@ -85,7 +73,6 @@ public class DrawController {
 	private FileReader fr;
 	private BufferedReader bf;
 
-	
 	public DrawController(DrawModel model, DrawFrame frame) {
 		this.model=model;
 		this.frame=frame;
@@ -136,11 +123,8 @@ public class DrawController {
 				}
 				foundShape=true;
 				break;
-			}
-			
+			}	
 		}
-		
-		
 		if(!foundShape) {
 						for(Shape s:model.getAll()) {
 				if(s.isSelected()) {
@@ -304,24 +288,18 @@ public class DrawController {
 					}
 				}
 			
-
-		
 	}
 	
 	public void delete() {
 		if(JOptionPane.showConfirmDialog(null, "Are you sure that you want to delete selected shape?", "Warning!", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-			
 			Iterator<Shape> it=model.getAll().iterator();
 			while(it.hasNext()) {
 				Shape s=it.next();
 				if(s.isSelected()) {
 					cmdDeleteShape =new CmdDeleteShape(s, model);
-					
 				}
 			}
 			executeCommand(cmdDeleteShape);
-			
-			
 		}
 	}
 	public void undo() {

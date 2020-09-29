@@ -19,7 +19,6 @@ public class SelectedUpdate implements Observer {
 	
 		if(selectedCount>0)
 		{
-			
 			frame.getBtnDelete().setEnabled(true);
 			frame.getBtnEdit().setEnabled(true);
 			frame.getBtnToBack().setEnabled(true);
@@ -30,16 +29,12 @@ public class SelectedUpdate implements Observer {
 			
 			 if(selectedCount>1)
 			{
-				
-				
 				frame.getBtnEdit().setEnabled(false);
 				frame.getBtnToBack().setEnabled(false);
 				frame.getBtnToFront().setEnabled(false);
 				frame.getBtnBringToBack().setEnabled(false);
 				frame.getBtnToFront().setEnabled(false);
 			}
-			
-			
 		}
 		else
 		{
