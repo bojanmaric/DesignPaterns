@@ -76,7 +76,7 @@ public class DrawController {
 	public DrawController(DrawModel model, DrawFrame frame) {
 		this.model=model;
 		this.frame=frame;
-		this.selectedCount=new SelectedCount();//Observer
+		this.selectedCount=new SelectedCount();
 		SelectedUpdate selectedCountUpdate= new SelectedUpdate(frame);
 		this.selectedCount.setObserver(selectedCountUpdate);
 		commandStack = new Stack<Command>();
@@ -95,9 +95,9 @@ public class DrawController {
 					selectedShapes.add(s);	
 					executeCommand(new CmdSelectShape(s));	
 					this.selectedCount.setSelectedCount(model.getSelectedCount()); 
-					//frame.getView().repaint();
+					
 				}
-				if(model.getSelectedCount()==1) {
+				/*if(model.getSelectedCount()==1) {
 					if(model.getAll().indexOf(s)==0){	
 					
 						frame.getBtnBringToFront().setEnabled(false);
@@ -120,7 +120,7 @@ public class DrawController {
 					frame.getBtnBringToBack().setEnabled(false);
 					frame.getBtnBringToFront().setEnabled(false);
 					frame.getBtnToFront().setEnabled(false);
-				}
+				}*/
 				foundShape=true;
 				break;
 			}	
@@ -366,8 +366,7 @@ public class DrawController {
 						frame.getBtnToFront().setEnabled(false);
 				
 					}else if(model.getAll().indexOf(s)==model.getAll().size()-1) {
-						frame.getBtnToBack().setEnabled(false);
-						frame.getBtnBringToBack().setEnabled(false);
+					
 						frame.getBtnBringToFront().setEnabled(true);
 						frame.getBtnToFront().setEnabled(true);
 					
@@ -595,7 +594,7 @@ public class DrawController {
 				
 				
 
-			} else if(lineElements[0].equals("unselect")){
+			} else if(lineElements[0].equals("unselected")){
 				//unselected:Point:[374,125],foreground[0.0.0]
 				String shape= line.substring(11);
 				

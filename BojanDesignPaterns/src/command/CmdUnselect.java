@@ -11,13 +11,17 @@ public class CmdUnselect implements Command {
 
 	@Override
 	public void execute() {
+		
 		s.setSelected(false);
+		
 		
 	}
 
 	@Override
 	public void unexecute() {
+		
 		s.setSelected(true);
+		
 	}
 	
 	@Override

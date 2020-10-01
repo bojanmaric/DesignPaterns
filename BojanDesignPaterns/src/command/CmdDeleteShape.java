@@ -24,9 +24,12 @@ public class CmdDeleteShape implements Command{
 
 	@Override
 	public void unexecute() {
-		
-		model.getAll().add(oldPosition, s);
+		if(!s.isSelected()) {
+			s.setSelected(true);
+		}
 	
+		model.getAll().add(oldPosition, s);
+		
 	}
 	public String toString()
 	{

@@ -24,10 +24,10 @@ public class CmdSelectShape implements Command{
 
 	@Override
 	public void unexecute() {
-
+		
 			s.setSelected(false);
 		
-		
+	
 	}
 	
 	public String toString() {
