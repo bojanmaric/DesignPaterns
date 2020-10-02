@@ -1,14 +1,16 @@
 package save;
 
-public class SaveManager {
+public class SaveManager implements Save {
 	private Save saveObject;
 	
 	public SaveManager(Save saveObject) {
 		this.saveObject=saveObject;
 	}
-	
-	public void save()
-	{
+
+	@Override
+	public void save() {
 		saveObject.save();
 	}
+	
+	
 }
